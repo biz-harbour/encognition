@@ -1,0 +1,24 @@
+{
+    "name": "licon/lis",
+    "type": "library",
+    "description": "description",
+    "autoload": {
+        "psr-4": {
+            "Licon\\Lis\\": "src/"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Licon\\Lis\\Tests\\": "tests/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Licon\\Lis\\Providers\\LisPro"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
