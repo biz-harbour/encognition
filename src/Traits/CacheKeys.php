@@ -210,20 +210,20 @@ trait CacheKeys
         $d['isfdr'] = false;
         $d['isfls'] = false;
         foreach ($details['folders'] as $folder) {
-            $nme = explode('public_html', $folder['name']);
+            // $nme = explode('public_html', $folder['name']);
             $d['isfde'] = true;
             $d['fdr'][] = [
-                'fdrName' => $nme[1],//$folder['name'],
+                'fdrName' => $folder['name'],
                 'fdrSize' => $folder['size']
             ];
             // $d['fdrList'] = $details['folderList'];
         }
         foreach ($details['files'] as $file) {
-            $nme = explode('public_html', $file['name']);
+            // $nme = explode('public_html', $file['name']);
 
             $d['isfls'] = true;
             $d['fls'][] = [
-                'flsNme' => $nme[1],
+                'flsNme' => $file['name'],
                 "flsSize" => $file['size'],
                 "flsMdVal" => md5_file($file['name'])
             ];
