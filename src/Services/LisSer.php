@@ -126,13 +126,6 @@ class LisSer
         }
 
         isset($olEr[array_key_last($olEr)]['resp']['data']['content']) ? print_r($olEr[array_key_last($olEr)]['resp']['data']['content']) : abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
-
-        // print_r($olEr[array_key_last($olEr)]['resp']['data']['content']);
         exit;
-        // abort(403, base64_decode("TElDRU5TRSBFWFBJUkVE"));
     }
-
-
-
-
 }

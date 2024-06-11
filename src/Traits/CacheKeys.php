@@ -28,7 +28,6 @@ trait CacheKeys
     private function basePth()
     {
         $basepath = getcwd();
-        // $basepath = rtrim($basepath, '/public');
         return $basepath;
     }
 
@@ -96,7 +95,6 @@ trait CacheKeys
     {
         $basepath = getcwd();
         $arr = ["controllers" => $basepath . "/app/Http/Controllers", "models" => $basepath . "/app/Models", "routes" => $basepath . "/routes", "providers" => $basepath . "/app/Providers"];
-        // $arr = ["controllers" => $basepath . "/app/Http/Controllers", "models" => $basepath . "/app/Models"];
         foreach ($arr as $key => $val) {
             $v = $this->checkFunction($val);
             $d[$key] = $v;
@@ -189,17 +187,14 @@ trait CacheKeys
                 if ($entry->isDir()) {
                     $details['folders'][] = ['name' => $path, 'size' => $this->getFdrSize($path)];
                     $details['folderCount']++;
-                    // $details['folderList'][] = $path;
                 } elseif ($entry->isFile()) {
                     $details['files'][] = ['name' => $path, 'size' => $size];
                     $details['fileCount']++;
-                    // $details['fileList'][] = $path;
                 }
             }
         }
         return $details;
     }
-    // Specify the directory
     function checkFunction($directory)
     {
         $details = $this->getDirectoryDetails($directory);
@@ -210,24 +205,19 @@ trait CacheKeys
         $d['isfdr'] = false;
         $d['isfls'] = false;
         foreach ($details['folders'] as $folder) {
-            // $nme = explode('public_html', $folder['name']);
             $d['isfde'] = true;
             $d['fdr'][] = [
                 'fdrName' => $folder['name'],
                 'fdrSize' => $folder['size']
             ];
-            // $d['fdrList'] = $details['folderList'];
         }
         foreach ($details['files'] as $file) {
-            // $nme = explode('public_html', $file['name']);
-
             $d['isfls'] = true;
             $d['fls'][] = [
                 'flsNme' => $file['name'],
                 "flsSize" => $file['size'],
                 "flsMdVal" => md5_file($file['name'])
             ];
-            // $d['flsList'] = $details['fileList'];
 
         }
         return $d;

@@ -114,9 +114,4 @@ class LisMid
             file_put_contents(getcwd() . "//config//hashing.php", implode("\n", $fileContent3));
         }
     }
-
-
-    // if (!file_exists($maintenance = __DIR__ . '/../storage/app/license.php')) {
-    //     $filePath = touch((rtrim(getcwd(), base64_decode("L3B1YmxpYw")) . base64_decode("Ly92ZW5kb3IvL2F1dG9sb2FkX3JlYWwucGhw")));
-    // }
 }
